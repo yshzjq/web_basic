@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style>
+    .textView
+    {
+      width:200px;
+      height:200px;
+
+      background-color: aqua;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div id = "text"></div>
+  <script>
+      let text;
+
+      Ask();
+
+      function Ask()
+      {
+          text = prompt('텍스트를 입력하세요');
+
+          if(text !== null && text !== '')
+          {
+              const div = document.getElementById("text");
+
+              div.innerText = text;
+              div.style.fontSize = "50px";
+              div.style.textAlign = "center";
+          }
+          else{
+              alert('텍스트 값을 입력해 주세요');
+              Ask();
+          }
+      }
+      function setRed()
+      {
+          const div = document.getElementById("text");
+
+          alert('빨강으로 변경');
+          div.style.color = "red"
+      }
+
+      function setBlue()
+      {
+          const div = document.getElementById("text");
+
+          alert('파랑으로 변경');
+          div.style.color = "blue"
+      }
+
+      function setGreen()
+      {
+          const div = document.getElementById("text");
+
+          alert('초록으로 변경');
+          div.style.color = "Green"
+      }
+
+  </script>
+  <div align="center">
+    <button onclick="setRed()">빨강</button>
+    <button onclick="setBlue()">파랑</button>
+    <button onclick="setGreen()">초록</button>
+  </div>
+
+
+
+
+</body>
+</html>
