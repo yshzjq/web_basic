@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>실습</title>
+  <script>
+      nameAsk();
+
+      function nameAsk()
+      {
+          let name = prompt('이름을 입력해주세요');
+
+          if(name === null) {
+              alert('입력해주세요');
+              nameAsk();
+          }
+          else{
+              alert(name + '님 안녕하세요');
+          }
+
+
+      }
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>
