@@ -2,9 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Title</title>
+  <script>
+
+      function numAsk()
+      {
+          let number = prompt('1~100 중 숫자 하나를 입력하라');
+
+
+          if(number === null || number < 1 || number > 100 || typeof number === 'number') {
+              alert('조건에 맞는 값이 입력되지 않았습니다.');
+              numAsk();
+          }
+          else{
+              for(let i = 1;i<=100;i++)
+              {
+                  console.log(i);
+              }
+
+              alert('완료');
+          }
+      }
+  </script>
+
 </head>
+
 <body>
-$END$
+  <button onclick = numAsk()>확인</button>
 </body>
 </html>
