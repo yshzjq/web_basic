@@ -10,17 +10,19 @@
           let number = prompt('1~100 중 숫자 하나를 입력하라');
 
 
-          if(number === null || number < 1 || number > 100 || typeof number !== 'number') {
-              alert('조건에 맞는 값이 입력되지 않았습니다.');
-              numAsk();
-          }
-          else{
+
+          if(number !== null && (parseInt(number) >= 1 && parseInt(number) <= 100)) {
+
               for(let i = 1;i<=100;i++)
               {
                   console.log(i);
               }
 
               alert('완료');
+          }
+          else{
+              alert('조건에 맞는 값이 입력되지 않았습니다.');
+              numAsk();
           }
       }
   </script>
