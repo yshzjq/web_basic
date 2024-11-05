@@ -2,9 +2,107 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>DOM 조작</title>
+  <script>
+    let socre = 0;
+
+    function load() {
+        let div1 = document.getElementById("id_div");
+        console.log(div1);
+
+        window.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowLeft") {
+                console.log("왼쪽");
+            } else if (event.key === "ArrowRight") {
+                console.log("오른쪽");
+            } else if (event.key === "ArrowUp") {
+                console.log("위");
+            } else if (event.key === "ArrowDown") {
+                console.log("아래");
+            }
+        });
+    }
+
+    function changeTextColor() {
+        const div = document.getElementById("id_div");
+        div.style.color = "red";
+    }
+
+    function changClassStyle1(){
+        const div = document.getElementById("id_div");
+        div.className = "style1";
+    }
+
+    function changClassStyle2(){
+        const div = document.getElementById("id_div");
+        div.className = "style2";
+    }
+
+    function inputTag(){
+        const div = document.getElementById("background");
+        div.innerText = "<b>hello</b>";
+    }
+
+  </script>
+
+  <style>
+    .style1 {
+        background-color: aqua;
+    }
+    .style2{
+        background-color:  yellow;
+    }
+
+    div{}
+    #id_div{}
+    .classDiv{}
+    #background{
+        height: 200px;width: 200px;
+    background-color: aqua}
+
+    #mouse{
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+    }
+  </style>
 </head>
-<body>
-$END$
+<body onload = "load()">
+
+  <button onclick = "changeTextColor()">버튼</button>
+  <button onclick="changClassStyle1()">style1</button>
+  <button onclick="changClassStyle2()">style2</button>
+  <div>div</div>
+  <div id = "id_div">id_div</div>
+  <div class="classDiv">class Div</div>
+  <div class="classDiv">class Div2</div>
+<div id = "background" onclick="inputTag()">hello</div>
+<label for = "type">
+  성별 :
+  <select id = "type" onchange="typeChanged()">
+    <option value="man">남</option>
+    <option value="woman">여</option>
+
+  </select>
+</label>
+
+<script>
+  function typeChanged(){
+      const type = document.getElementById("type");
+      console.log(type.value);
+  }
+</script>
+
+<style></style>
+<div id = "mouse" onmouseover = "mouseOver(this)" onmouseout = "mouseOut(this)">
+</div>
+
+<script>
+  function mouseOver(target){
+      target.style.backgroundColor = "red"
+  }function mouseOut(target){
+      target.style.backgroundColor = ""
+  }
+</script>
 </body>
 </html>
