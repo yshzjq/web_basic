@@ -13,8 +13,9 @@ class GuguClass {
 
 }
 ```
+## 스샷
 
-### 스샷
-https://www.cyso.co.kr/shop/largeimage.php?it_id=1634988274&no=1
+<img src = "https://github.com/user-attachments/assets/7cc03654-109f-44ce-a2b3-13c37ee0f75b" width = "300"/>
+
 
 #### 제목
