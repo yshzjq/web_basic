@@ -15,6 +15,6 @@ class GuguClass {
 ```
 ##스샷
 
-<img src = "https://www.cyso.co.kr/shop/largeimage.php?it_id=1634988274&no=1"></img>
+<img src = "https://www.cyso.co.kr/shop/largeimage.php?it_id=1634988274&no=1" width = "300"/>
 
 #### 제목
