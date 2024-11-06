@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<style>
+  .titlebox
+  {
+      padding: 15px;
+      width: 300px;
+      height: 20px;
+      background-color: gray;
+  }
+  .ground
+  {
+      background-color: darkgray;
+      position: absolute;
+      width: 330px;
+      height: 300px;
+  }
+
+  .component
+  {
+      background-color: white;
+      margin: 25px;
+      padding: 15px;
+      width: 190px;
+      height:30px;
+  }
+
+  .inputfield
+  {
+      position: absolute;
+      bottom: -40px;
+  }
+  .input{}
+
+</style>
+<body>
+  <div>
+
+    <div class = "titlebox">기사 등록하기</div>
+    <div class = "ground">
+      <div class = "component"><b>박지성</b> SBS에서 월드컵보세요!</div>
+      <div class = "component"><b>안정환</b> MBC죠...</div>
+      <div class = "component"><b>이영표</b> KBS는 수신료의 가치를..</div>
+
+      <div class = "inputfield">
+        <label>
+          <input type = "text" class = "input">
+        </label>
+        <button onclick = "addcomponent()"> 입력</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+  function addcomponent()
+  {
+      let height = $(".ground").height();
+      height += 90;
+      $(".ground").css("height",height.toString());
+
+      let inputText = $(".input").val().toString();
+      let string = "<div class = \"component\">"+ inputText +"</div>"
+      let a = $(".ground").append(string);
+  }
+</script>
+
+
+
+
+</body>
+</html>

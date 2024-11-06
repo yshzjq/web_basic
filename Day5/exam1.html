@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+  <style>
+      #viewText {
+          text-align: center;
+      }
+  </style>
+  <script>
+      $(()=> {
+          let inputText = prompt('텍스트값을 입력해 주세요');
+
+          $("#viewText").text(inputText);
+      });
+
+      function setRed()
+      {
+          alert('빨강 변경');
+          $("#viewText").css("color","red");
+      }
+      function setGreen()
+      {
+          alert('초록 변경');
+          $("#viewText").css("color","blue");
+      }
+      function setBlue()
+      {
+          alert('파랑 변경');
+          $("#viewText").css("color","Green");
+      }
+  </script>
+</head>
+<body>
+
+  <div id = "viewText">asd</div>
+  <div align="center">
+    <button onclick = "setRed()">빨강</button>
+    <button onclick = "setBlue()">파랑</button>
+    <button onclick = "setGreen()">초록</button>
+  </div>
+
+
+
+</body>
+</html>
