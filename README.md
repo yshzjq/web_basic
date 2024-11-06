@@ -15,7 +15,6 @@ class GuguClass {
 ```
 ##스샷
 
-<img src = "https://github.com/user-attachments/assets/7cc03654-109f-44ce-a2b3-13c37ee0f75b
-" width = "300"/>
+<img src = "https://github.com/user-attachments/assets/7cc03654-109f-44ce-a2b3-13c37ee0f75b" width = "300"/>
 
 #### 제목
