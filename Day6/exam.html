@@ -2,9 +2,101 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <title>Title</title>
+  <style>
+      #background
+      {
+          position: absolute;
+          display: inline-block;
+          left:50px;
+          top:50px;
+          width: 500px;
+          height: 500px;
+          border: 1px solid black;
+          background-image: url("guasuwon.jpg");
+          background-size: cover;
+      }
+
+      #player
+      {
+
+          position: absolute;
+          visibility: hidden;
+          left:50px;
+          top:50px;
+          height: 50px;
+      }
+</style>
+  <script>
+
+      function load()
+      {
+
+
+          window.addEventListener("keydown", (event) => {
+              if (event.key === "ArrowLeft") {
+                  if(parseInt($("#player").css("left")) < 50) return;
+                  left();
+              } else if (event.key === "ArrowRight") {
+                  if(parseInt($("#player").css("left")) > 350) return;
+                  right();
+              } else if (event.key === "ArrowUp") {
+                  if(parseInt($("#player").css("top")) < 50) return;
+                  up();
+              } else if (event.key === "ArrowDown") {
+                  if(parseInt($("#player").css("top")) > 350) return;
+                  down();
+              }
+          });
+
+      }
+
+      const bgWidth = 500;
+      const bgHeight = 500;
+
+      // onload : 화면 다 그리고 실행
+      $(() => {
+          initGame();
+      });
+
+      function initGame()
+      {
+          setTimeout(()=> {
+              $("#player").css("visibility", "visible");
+          }, 3000)
+      }
+
+
+      function left()
+      {
+          $("#player").css("left","-=50px");
+      }
+      function right()
+      {
+          $("#player").css("left","+=50px");
+      }
+      function up()
+      {
+          $("#player").css("top","-=50px");
+      }
+      function down()
+      {
+          $("#player").css("top","+=50px");
+      }
+
+      function checkBounds(){
+
+
+
+      }
+  </script>
+
 </head>
-<body>
-$END$
+<body onload = "load()">
+  <div id = "background">
+    <div id = "player"><img src = "../apple.jpg" width="100" height="100"></div>
+  </div>
+
 </body>
 </html>
