@@ -6,34 +6,60 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
   <style>
+      .sliding-background {
+          background: url("guasuwon.jpg");
+          width: 200%;
+          height: 100%;
+          animation: slide 10s linear infinite;
+      }
+
+      @keyframes slide {
+          from {
+              transform: translate(0, 0);
+          }
+
+          to {
+              transform: translate(-420px, 0);
+          }
+      }
       #background {
-          background-image: url("guasuwon.jpg");
-          background-size: cover;
+
+          /*background-image: url("guasuwon.jpg");*/
+          /*background-size: cover;*/
           position: absolute;
           left: 50px;
           top: 50px;
           width: 500px;
           height: 500px;
           border: 1px solid black;
+          overflow: hidden;
       }
 
       #player {
+          z-index: 1;
           position: absolute;
           left: 30px;
           bottom: 80px;
       }
 
       .enemy {
+          z-index: 2;
           position: absolute;
           right: 10px;
           bottom: 100px;
       }
 
-      #score
-      {
+      #score {
           color: red;
           font-size: 30px;
           text-align: center;
+      }
+
+      .fire {
+          z-index: 1;
+          position: absolute;
+          bottom: 100px;
+          left: 30px;
       }
   </style>
 
@@ -67,8 +93,6 @@
           });
       }
 
-
-
       function moveEnemy() {
           $(".enemy").css("right", `+=${enemySpeed}px`);
 
@@ -84,7 +108,7 @@
           }
       }
 
-      function setScore(score){
+      function setScore(score) {
           $("#score").text(`SCORE : ${score}`);
       }
 
@@ -93,16 +117,18 @@
               return;
           }
 
-          if(!isDie){
+          if (!isDie) {
               score += 100;
               setScore(score);
           }
 
+          $("#enemy").show();
+
           isSpawning = true;
           enemySpeed = Math.random() * 15 + 5; // 0.0 ~ 1.0
-          // 5~20
+          // 5 ~ 20
 
-          const spawnTime = Math.random() * 1000 + 500; // 500 ~ 1500
+          const spawnTime = Math.random() * 1000 + 500;  // 500 ~ 1500
 
           setTimeout(() => {
               $(".enemy").css("right", "-100px");
@@ -138,12 +164,35 @@
           return isColliding;
       }
 
+      function fire() {
+          const id = Date.now();
+          $("#background").append(`<div id="${id}" class="fire"><img src = "apple.jpg" height="30px" width="30px"></div>`);
+
+          $(`#${id}`).animate({
+              left: "500px"
+          })
+      }
+
+      function checkEnemyDie() {
+          const enemy = document.getElementById("enemy");
+
+          $(".fire").each(() => {
+              if (checkCollision($(this), enemy)) {
+                  $(this).remove();
+                  $(enemy).hide();
+                  respawnEnemy();
+              }
+          });
+      }
 
       function gameLoop() {
           moveEnemy();
 
+          checkEnemyDie();
+
           if (checkGameOver()) {
-              return;
+              isDie = true;
+              // return;
           }
 
           requestAnimationFrame(gameLoop);
@@ -152,6 +201,9 @@
       document.addEventListener("keydown", (event) => {
           if (event.key === " ") {
               jump();
+          } else if (event.key === "Control") {
+              fire();
+              console.log("fire");
           }
       });
 
@@ -163,14 +215,17 @@
 </head>
 <body>
 <div id="background">
+  <div class ="sliding-background"></div>
+
   <div id="player">
-    <img src="../apple.jpg" width="50px" height="50px">
+    <img src="apple.jpg" width="50px" height="50px">
   </div>
 
   <div class="enemy" id="enemy">
-    <img src="bear.jpg" width="100px">
+    <img src="bear.jpg" width="50px">
   </div>
-  <div id = "score">
+
+  <div id="score">
     SCORE : 0
   </div>
 </div>
