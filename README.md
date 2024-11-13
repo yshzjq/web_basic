@@ -16,6 +16,6 @@ class GuguClass {
 ## 스샷
 <img src = "https://github.com/user-attachments/assets/7cc03654-109f-44ce-a2b3-13c37ee0f75b" width = "300" alt=""/>
 <a href="Day4/exam1.html">exam 1</a></li>
-       
+       https://yshzjq.github.io/Day4/exam1.html
 
 #### 제목
